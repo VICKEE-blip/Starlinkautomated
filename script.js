@@ -1,4 +1,3 @@
-javascript
 function startPayment(link) {
   const pkg = link.dataset.package;
   const amount = link.dataset.price;
