@@ -1,10 +1,17 @@
+javascript
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const path = require('path'); // ✅ Add this
 
 const app = express();
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('public')); // ✅ Serve static assets
+
+// ✅ Respond to the homepage request
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 const shortcode = 'YOUR_SHORTCODE'; // Replace with your actual shortcode
 const passkey = 'YOUR_PASSKEY';     // Replace with your actual passkey
